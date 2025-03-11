@@ -10,10 +10,11 @@ def guessing(secret, letter, word):
     for j in places:
         word = word[0:j] + letter + word[j + 1:]
     if len(places):
-        print("Удачно!")
+        return [word, 1]
     else:
-        print("Таких букв нет!")
-    return word
+        return [word, 0]
+        
+    
         
 
 word_bank = ["слово", "яблоко", "книга", "солнце", "река", "стол", "кошка", "музыка", "ветер", "окно", "цветок", "дорога", "чашка", "звезда", "ночь", "утро", "дождь", "песня", "город", "море", "лес", "огонь", "снег", "друг", "счастье", "время", "жизнь", "мечта", "работа", "школа", "дом", "рука", "нога", "голова", "глаз", "ухо", "рот", "нос", "сердце", "душа", "мысль", "слово", "число", "буква", "бумага", "карандаш", "стена", "дверь", "окно", "свет", "тень", "воздух"]
@@ -32,14 +33,18 @@ while a_word != g_word and attempt != 0:
         print("Такую букву нельзя вводить!")
         answer = input("Введите букву ещё раз: ")
     os.system("cls")
-    
-    a_word = guessing(g_word, answer, a_word)
+    if not(guessing(g_word, answer, a_word)[1]):
+        attempt -= 1
+        print("Таких букв нет!")
+    else:
+        print("Удачно!")
+    a_word = guessing(g_word, answer, a_word)[0]
     print("Загаданное слово: ", end="")
     for i in a_word: print(i, end=" ")
-    attempt -= 1
     print("\nПопыток осталось:", attempt, "\n")
     alp = alp.replace(answer, alp_n[alp.index(answer)])
-    print(alp)
+    for i in alp:print(i + " ", end="")
+    
 
 if a_word == g_word:
     print("Поздравляю! Слово отгадано!")
