@@ -8,8 +8,8 @@
 
 #----------------------------------------------------------------------------------------------------
 
-Works with python 3.6 and higher, to run ```python word_guess_en```.
 A little game called “Guess the Word”. The idea was taken from Codedex https://www.codedex.io/projects/build-a-word-guessing-game-with-python.
+Works with python 3.6 and higher, to run ```python word_guess_en```.
 
 Additions to the original idea were:
 1) Adding an alphabet to view the letters already entered (at the end of each round, an alphabet is displayed where capital letters have already been entered)
